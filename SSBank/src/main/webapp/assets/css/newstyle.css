@@ -1,0 +1,30 @@
+.banner-text{
+
+    color:white;
+    background-color: black;
+    opacity: 61%;
+    padding: 36px;
+    border-radius: 10px;
+}
+
+.home-banner{
+    padding-top: 162px;
+    padding-left: 72px;
+}
+
+.logo-placement{
+    padding-left:45%;
+}
+
+.home-features-wrapper{
+    padding-top:80px;
+    font-size: 30px;
+}
+
+.home-features-wrapper i {
+    font-size: 80px;
+}
+
+.footer-logo img{
+    width:120px;
+}
