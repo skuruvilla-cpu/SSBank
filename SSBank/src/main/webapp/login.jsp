@@ -10,13 +10,13 @@
                             <div class="login-header">
                                 <h3>Login <span>SS Bank</span></h3>
                             </div>
-                            <form action="https://doccure-html.dreamguystech.com/template/index.html">
+                            <form action="LoginController" method="POST">
                                 <div class="form-group form-focus">
-                                    <input type="email" class="form-control floating">
+                                    <input type="email" class="form-control floating" name="email">
                                     <label class="focus-label">Email</label>
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="password" class="form-control floating">
+                                    <input type="password" class="form-control floating" name="password">
                                     <label class="focus-label">Password</label>
                                 </div>
                                 <button class="btn btn-primary w-100 btn-lg login-btn"
@@ -25,8 +25,14 @@
                                     <span class="or-line"></span>
                                     <span class="span-or">or</span>
                                 </div>
+                                <% if(request.getParameter("success")!=null && Integer.parseInt(request.getParameter("success"))==0){ %>
+							     <div class="error">
+							         <p>Invalid Credentials! Please try again!</p>
+							     </div>
+								<% } %>
                                 <div class="text-center dont-have">Don't have an account ? <a href="register">Register</a></div>
                             </form>
+                            
                         </div>
                     </div>
                 </div>
