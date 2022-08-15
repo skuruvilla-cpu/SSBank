@@ -33,10 +33,10 @@
 
 				<ul class="nav header-navbar-rht">
 					<li class="nav-item">
-						<a class="nav-link header-login" href="login">Login</a>
+						<a class="nav-link header-login" href="login.jsp">Login</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link header-login" href="register">Signup </a>
+						<a class="nav-link header-login" href="register.jsp">Signup </a>
 					</li>
 				</ul>
 			</nav>
@@ -72,4 +72,4 @@
 		</section>
 	</div>
 
-		<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp" %>

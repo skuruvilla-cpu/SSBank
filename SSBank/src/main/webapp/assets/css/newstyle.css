@@ -28,3 +28,51 @@
 .footer-logo img{
     width:120px;
 }
+
+.home-welcome{
+    padding:40px 10px 10px 10px;
+}
+
+.main-contecnt-accounts{
+    margin:40px 0px;    
+}
+
+
+input[type=text],select,textarea
+{
+
+	padding:12px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	
+}
+
+label
+{
+	padding :12px 12px 12 px 2px;
+	display:inline block;
+}
+.container
+{
+	border-radius:5px;
+	padding:20px;
+}
+.col-25
+{
+	float:left;
+	width:25%;
+	margin-top:6px;
+}
+
+.col-35
+{
+	float:left;
+	width:75%;
+	margin-top:6px;
+}
+.col-50
+{
+	float:left;
+	width:25%;
+	margin-top:6px;
+}

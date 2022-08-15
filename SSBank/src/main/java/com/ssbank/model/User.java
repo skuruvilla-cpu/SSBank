@@ -1,29 +1,27 @@
 package com.ssbank.model;
 
-import java.sql.Date;
+import com.ssbank.dao.UserDao;
 
 public class User {
 	private Integer user_id;
 	private String fist_name;
 	private String last_name;
-	private Date dob;
 	private String gender;
 	private String email;
-	private Integer phone_number;
+	private Long phone_number;
 	private String street_address;
 	private String city;
 	private String state;
 	private String postal_code;
 	private String nationality;
 	private String password;
-	public User(Integer user_id, String fist_name, String last_name, Date dob, String gender, String email,
-			Integer phone_number, String street_address, String city, String state, String postal_code,
+	public User(Integer user_id, String fist_name, String last_name, String gender, String email,
+			Long phone_number, String street_address, String city, String state, String postal_code,
 			String nationality, String password) {
 		super();
 		this.user_id = user_id;
 		this.fist_name = fist_name;
 		this.last_name = last_name;
-		this.dob = dob;
 		this.gender = gender;
 		this.email = email;
 		this.phone_number = phone_number;
@@ -52,12 +50,6 @@ public class User {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	public Date getDob() {
-		return dob;
-	}
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
 	public String getGender() {
 		return gender;
 	}
@@ -70,10 +62,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getPhone_number() {
+	public Long getPhone_number() {
 		return phone_number;
 	}
-	public void setPhone_number(Integer phone_number) {
+	public void setPhone_number(Long phone_number) {
 		this.phone_number = phone_number;
 	}
 	public String getStreet_address() {
@@ -113,4 +105,7 @@ public class User {
 		this.password = password;
 	}
 	
+	public static Integer generateUserID() {
+		return (UserDao.getUserCount()+1);
+	}
 }

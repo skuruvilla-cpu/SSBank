@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HomePageController
  */
-@WebServlet("/")
+@WebServlet("/HomePageController")
 public class HomePageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,8 +29,11 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	
 		response.setContentType("text/html");
 		String  url = request.getServletPath();
-		
-		switch(url) {		
+		switch(url) {	
+			case ("/"):{
+				response.sendRedirect("index.jsp");
+				break ;
+			}		
 			case ("/login"):{
 				response.sendRedirect("login.jsp");
 				break ;
@@ -40,7 +43,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				break ;
 			}
 			default:{		
-//				response.sendRedirect("error.html");
+				response.sendRedirect("error.html");
 			}
 		}
 	}
