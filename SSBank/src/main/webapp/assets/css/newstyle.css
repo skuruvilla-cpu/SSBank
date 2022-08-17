@@ -38,7 +38,7 @@
 }
 
 
-input[type=text],select,textarea
+input[type=text],select,textarea,input[type=password]
 {
 
 	padding:12px;
@@ -75,4 +75,15 @@ label
 	float:left;
 	width:25%;
 	margin-top:6px;
+}
+
+.account-details{
+	text-align:left;
+}
+
+.long-text{
+	width:421px;
+}
+.long-field{
+	width: 266px;
 }

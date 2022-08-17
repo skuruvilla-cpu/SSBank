@@ -8,7 +8,7 @@ public class User {
 	private String last_name;
 	private String gender;
 	private String email;
-	private Long phone_number;
+	private String phone_number;
 	private String street_address;
 	private String city;
 	private String state;
@@ -16,7 +16,7 @@ public class User {
 	private String nationality;
 	private String password;
 	public User(Integer user_id, String fist_name, String last_name, String gender, String email,
-			Long phone_number, String street_address, String city, String state, String postal_code,
+			String phone_number, String street_address, String city, String state, String postal_code,
 			String nationality, String password) {
 		super();
 		this.user_id = user_id;
@@ -62,10 +62,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Long getPhone_number() {
+	public String getPhone_number() {
 		return phone_number;
 	}
-	public void setPhone_number(Long phone_number) {
+	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
 	public String getStreet_address() {

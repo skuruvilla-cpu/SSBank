@@ -1,3 +1,7 @@
+<%@page import="com.ssbank.model.User"%>
+<%@page import="com.ssbank.model.Account"%>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -26,7 +30,7 @@
 			<nav class="navbar navbar-expand-lg header-nav">
 				<div class="navbar-header logo-placement">
 					
-					<a href="index.html" class="navbar-brand logo">
+					<a href="/SSBank/" class="navbar-brand logo">
 						<img src="${pageContext.request.contextPath}/assets/img/logo.png" class="img-fluid" alt="Logo">
 					</a>
 				</div>

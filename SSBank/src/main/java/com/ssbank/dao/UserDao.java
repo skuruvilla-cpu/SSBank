@@ -26,7 +26,7 @@ public class UserDao {
 			while(rs.next()) {
 				userObj = new User(
 						rs.getInt("user_id"), rs.getString("first_name"),  rs.getString("last_name"), rs.getString("gender"), rs.getString("email"),
-						rs.getLong("phone_number"), rs.getString("street_address"), rs.getString("city"), rs.getString("state"), rs.getString("postal_code"),
+						rs.getString("phone_number"), rs.getString("street_address"), rs.getString("city"), rs.getString("state"), rs.getString("postal_code"),
 						rs.getString("nationality"),rs.getString("password"));
 				
 			}
@@ -68,7 +68,7 @@ public class UserDao {
 			pstmt.setString(3, newUser.getLast_name());
 			pstmt.setString(4, newUser.getGender());
 			pstmt.setString(5, newUser.getEmail());
-			pstmt.setLong (6, newUser.getPhone_number());
+			pstmt.setString (6, newUser.getPhone_number());
 			pstmt.setString(7, newUser.getStreet_address());
 			pstmt.setString(8, newUser.getCity());
 			pstmt.setString(9, newUser.getState());

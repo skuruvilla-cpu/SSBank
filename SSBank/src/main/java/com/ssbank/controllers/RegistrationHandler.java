@@ -24,6 +24,13 @@ public class RegistrationHandler extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
+    public static boolean isValidPassword(final String password) {
+    	String passwd = "aaZZa44@"; 
+        String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
+        System.out.println(passwd.matches(pattern));
+        return password.matches(password);
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,30 +50,67 @@ public class RegistrationHandler extends HttpServlet {
 		String last_name=request.getParameter("last_name");
 		String gender=request.getParameter("gender"); 
 		String email=request.getParameter("email");
-		Long phone_number=Long.parseLong(request.getParameter("phone_number"));
+		String phone_number= request.getParameter("phone_number");
 		String street_address=request.getParameter("street_address"); 
 		String city=request.getParameter("city");
 		String state=request.getParameter("state"); 
 		String postal_code=request.getParameter("postal_code"); 
 		String nationality=request.getParameter("nationality");
 		String password=request.getParameter("password");
+		String confirmPassword = request.getParameter("RepeatPassword");
+		String accounttypessav= request.getParameter("accounttypeSav");
 		
-		User newUser = new User(
-				user_id,
-				first_name,
-				last_name,
-				gender,
-				email,
-				phone_number,
-				street_address,
-				city,
-				state,
-				postal_code,
-				nationality,
-				password);
 		
-		UserDao newdao = new UserDao();
-		newdao .createUser(newUser);
-	}
 
+		
+		if(!RegistrationHandler.isValidPassword(password)) {
+			response.sendRedirect("register.jsp?pwd=0");
+		}else if(confirmPassword != password) {
+			response.sendRedirect("register.jsp?pwd=-1");
+		}else {
+			User newUser = new User(
+					user_id,
+					first_name,
+					last_name,
+					gender,
+					email,
+					phone_number,
+					street_address,
+					city,
+					state,
+					postal_code,
+					nationality,
+					password);
+			
+			UserDao newdao = new UserDao();
+			AccountsDao checkaccobj = new AccountsDao();
+			
+			//exit if user email already exists
+			newdao.getUserbyParam(null, email);
+			if(newdao.getUserbyParam(null, email)!= null) {
+				response.sendRedirect("register.jsp?email=0");
+			}else {
+				int registerStatus = newdao.createUser(newUser);
+				if(registerStatus != 0) {
+					int accountcreateStatus = 0;
+					
+					//creating accounts
+					
+					accountcreateStatus = checkaccobj.createAccounts("checking",user_id);
+					
+					if(accounttypessav!=null && accounttypessav.equals("savings")) {
+						accountcreateStatus = checkaccobj.createAccounts("savings",user_id);
+					}
+					
+					if(accountcreateStatus == 0) {
+						response.sendRedirect("register.jsp?success=0");
+					}else {
+						response.sendRedirect("login.jsp?success=1");
+					}
+				}else {
+					response.sendRedirect("register.jsp?success=0");
+				}
+			}
+		}
+	}
 }

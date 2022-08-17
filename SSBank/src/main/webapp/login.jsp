@@ -25,12 +25,13 @@
                                     <span class="or-line"></span>
                                     <span class="span-or">or</span>
                                 </div>
-                                <% if(request.getParameter("success")!=null && Integer.parseInt(request.getParameter("success"))==0){ %>
-							     <div class="error">
-							         <p>Invalid Credentials! Please try again!</p>
-							     </div>
-								<% } %>
-                                <div class="text-center dont-have">Don't have an account ? <a href="register">Register</a></div>
+                                <% if(request.getParameter("success")!=null && Integer.parseInt(request.getParameter("success"))==0){ 
+                                	 out.print("<div class=\"error\"><p class=\"text-center text-danger\">Invalid Credentials! Please try again!</p></div>");
+							     } %>
+							     <% if(request.getParameter("success")!=null && Integer.parseInt(request.getParameter("success"))==1){ 
+                                	 out.print("<div class=\"success\"><p class=\"text-center text-success\">Account Created! Please login!</p></div>");
+							     } %>
+                                <div class="text-center dont-have">Don't have an account ? <a href="register.jsp">Register</a></div>
                             </form>
                             
                         </div>
