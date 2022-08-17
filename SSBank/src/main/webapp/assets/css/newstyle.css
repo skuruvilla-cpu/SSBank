@@ -38,7 +38,7 @@
 }
 
 
-input[type=text],select,textarea,input[type=password]
+input[type=text],select,textarea,input[type=password],input[type=email]
 {
 
 	padding:12px;

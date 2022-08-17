@@ -33,7 +33,7 @@
 
 				<ul class="nav header-navbar-rht">
 					<li class="nav-item">
-						<a class="nav-link header-login" href="login.jsp">Login</a>
+						<a class="nav-link header-login" href="LoginController">Login</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link header-login" href="register.jsp">Signup </a>

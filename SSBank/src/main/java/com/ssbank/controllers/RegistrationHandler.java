@@ -26,10 +26,8 @@ public class RegistrationHandler extends HttpServlet {
     }
     
     public static boolean isValidPassword(final String password) {
-    	String passwd = "aaZZa44@"; 
         String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
-        System.out.println(passwd.matches(pattern));
-        return password.matches(password);
+        return password.matches(pattern);
     }
 
 	/**
@@ -60,12 +58,12 @@ public class RegistrationHandler extends HttpServlet {
 		String confirmPassword = request.getParameter("RepeatPassword");
 		String accounttypessav= request.getParameter("accounttypeSav");
 		
-		
-
+		System.out.println(password);
+		System.out.println(confirmPassword);
 		
 		if(!RegistrationHandler.isValidPassword(password)) {
 			response.sendRedirect("register.jsp?pwd=0");
-		}else if(confirmPassword != password) {
+		}else if(!confirmPassword.equals(password)) {
 			response.sendRedirect("register.jsp?pwd=-1");
 		}else {
 			User newUser = new User(

@@ -54,7 +54,7 @@
             <label><b>Email</b></label> 
         </div>
         <div class="col-35">
-            <input type="text" class="long-field" placeholder="Email" name="email" required> 
+            <input type="email" class="long-field" placeholder="Email" name="email" required> 
         </div>
         </div>
     <div class="row">
